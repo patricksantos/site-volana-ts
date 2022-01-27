@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { Avatar, Box, Button, CssBaseline, Grid, Paper, Typography } from '@mui/material';
 import imageLogo from '../../shared/assets/images/logo2.png';
-import { Copyright } from './components/Copyright';
+import { Copyright } from '../../shared/components/Copyright';
 import { InputLogin } from './components/InputLogin';
 import { LoginStore } from './store/login-store';
+import loginStyles from "./styles";
 
 interface LoginProps {
     loginStore: LoginStore;
 }
 
 const Login = ({ loginStore }: LoginProps) => {
+    const classes = loginStyles();
+    
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
 
@@ -20,21 +23,21 @@ const Login = ({ loginStore }: LoginProps) => {
     });
 
     return (
-        <Grid container component="main" className={loginStore.classes.root}>
+        <Grid container component="main" className={classes.root}>
             <CssBaseline />
-            <Grid item xs={false} sm={4} md={8} className={loginStore.classes.image} />
-            <Grid className={loginStore.classes.section} item xs={12} sm={8} md={4} component={Paper} elevation={6} square>
-                <div className={loginStore.classes.paper}>
+            <Grid item xs={false} sm={4} md={8} className={classes.image} />
+            <Grid className={classes.section} item xs={12} sm={8} md={4} component={Paper} elevation={6} square>
+                <div className={classes.paper}>
                     <Avatar
                         alt="Logo"
                         src={imageLogo}
                         variant="square"
-                        className={loginStore.classes.avatar}
+                        className={classes.avatar}
                     />
                     <Typography component="h1" variant="h5" style={{ color: '#EBEDF5' }}>
                         Volana Guild
                     </Typography>
-                    <form className={loginStore.classes.form} noValidate >
+                    <form className={classes.form} noValidate >
                         <InputLogin
                             name="Email"
                             textError={errors.email}
@@ -50,7 +53,7 @@ const Login = ({ loginStore }: LoginProps) => {
                         <Box mt={1}>
                             <Typography align="center">
                                 {<p style={{ color: 'red' }}>
-                                    {errors.message != '' && errors.password == '' && errors.email == '' ? errors.message : ''}
+                                    {errors.message !== '' && errors.password === '' && errors.email === '' ? errors.message : ''}
                                 </p>}
                             </Typography>
                         </Box>
@@ -60,7 +63,7 @@ const Login = ({ loginStore }: LoginProps) => {
                             fullWidth
                             variant="contained"
                             color="primary"
-                            className={loginStore.classes.submit}
+                            className={classes.submit}
                             onClick={(e) => loginStore.login(e, email, password, setErrors)}
                         >
                             Entrar

@@ -4,9 +4,8 @@ import { LoginError } from "../../../core/errors/login-error";
 import { ILoginRepository } from "../../../core/repository/i-login-repository";
 import { LoginUser } from "../../../core/usecase/login-user";
 import { Either } from "../../../shared/utils/either";
-import loginStyles from "../styles";
 
-interface setErrors {
+interface SetErrors {
     email: string;
     password: string;
     message: string;
@@ -14,8 +13,6 @@ interface setErrors {
 
 export class LoginStore {
     private navigate = useNavigate();
-    public classes = loginStyles();
-    
     private loginUser: LoginUser;
 
     constructor(private loginRepository: ILoginRepository) {
@@ -26,7 +23,7 @@ export class LoginStore {
         event: any,
         email: string,
         password: string,
-        setErrors: React.Dispatch<React.SetStateAction<setErrors>>,
+        setErrors: React.Dispatch<React.SetStateAction<SetErrors>>,
     ): Promise<void> {
         event.preventDefault();
         try {
@@ -36,8 +33,8 @@ export class LoginStore {
             } else if (loginData.isLeft()) {
                 var valueLoginError = loginData.value;
                 setErrors({
-                    email: valueLoginError.emailInvalid ? 'Email inválido' : '',
-                    password: valueLoginError.passwordInvalid ? 'Senha inválida' : '',
+                    email: valueLoginError.emailInvalid ? valueLoginError.emailInvalid : '',
+                    password: valueLoginError.passwordInvalid ? valueLoginError.passwordInvalid : '',
                     message: valueLoginError.message ? valueLoginError.message : '',
                 })
             }

@@ -2,7 +2,6 @@ import { AuthData } from "../core/entity/auth";
 import { LoginError } from "../core/errors/login-error";
 
 export class AuthAdapter {
-    constructor() { }
     public static create(json: any): AuthData {
         var type = json['type'];
         var token = json['token'];
@@ -28,7 +27,6 @@ export class AuthAdapter {
                     break;
             }
         })
-        
         return authDataError;
     }
 }

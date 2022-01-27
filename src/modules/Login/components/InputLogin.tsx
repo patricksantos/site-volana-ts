@@ -46,8 +46,8 @@ export const InputLogin = (props: PropsTextFieldLogin) => {
       id={props.name.toLowerCase()}
       label={props.name}
       name={props.name.toLowerCase()}
-      type={props.name.toLowerCase() == 'email' ? '' : 'password'}
-      autoComplete={props.name.toLowerCase() == 'email' ? 'email' : 'current-password'}
+      type={props.name.toLowerCase() === 'email' ? '' : 'password'}
+      autoComplete={props.name.toLowerCase() === 'email' ? 'email' : 'current-password'}
       autoFocus
     />
   )

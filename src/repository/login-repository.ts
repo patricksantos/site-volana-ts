@@ -6,6 +6,28 @@ import { login, logout } from "../core/services/auth";
 import loginService from "../core/services/request/login.service";
 import { Either, left, returnEitherAxios, right } from "../shared/utils/either";
 
+// class SessionSingleton {
+//     private static instance: SessionSingleton;
+//     private constructor() { }
+
+//     public static getInstance(): SessionSingleton {
+//         if (!SessionSingleton.instance) {
+//             SessionSingleton.instance = new SessionSingleton();
+//         }
+//         return SessionSingleton.instance;
+//     }
+
+//     public authData: AuthData | null = null;
+
+//     public setAuthData(authData: AuthData) {
+//         this.authData = authData;
+//     }
+
+//     public getAuthData(): AuthData | null {
+//         return this.authData;
+//     }
+// }
+
 export class LoginRepository implements ILoginRepository {
     private loginDatabase = loginService;
 

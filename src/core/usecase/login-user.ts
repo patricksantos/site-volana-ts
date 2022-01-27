@@ -4,13 +4,13 @@ import { LoginError } from "../errors/login-error";
 import { ILoginRepository } from "../repository/i-login-repository";
 
 export class LoginUser {
-    constructor(private repositroryLogin: ILoginRepository) { };
+    constructor(private repositoryLogin: ILoginRepository) { };
 
     public async login(email: string, password: string): Promise<Either<LoginError, AuthData>> {
-        return this.repositroryLogin.loginAccount(email, password);
+        return this.repositoryLogin.loginAccount(email, password);
     }
 
     public logout(): void {
-        this.repositroryLogin.logoutAccount();
+        this.repositoryLogin.logoutAccount();
     }
 }
