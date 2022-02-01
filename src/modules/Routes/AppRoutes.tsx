@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { isAuthenticated } from '../../core/services/auth';
-import './App.css';
 import { LoginModule } from '../Login/LoginModule';
-import DashboardModule from '../Dashboard/DashboardModule';
+import { DashboardModule } from '../Dashboard/DashboardModule';
+import './App.css';
 
 const AppRoutes = () => {
     function PrivateRoute({ children }: any) {

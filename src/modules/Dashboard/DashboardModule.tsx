@@ -1,10 +1,8 @@
 import React from 'react';
-import Dashboard from './Dashboard';
+import {Dashboard} from './Dashboard';
 
 interface DashboardModuleProps { }
 
-const DashboardModule = (props: DashboardModuleProps) => {
+export const DashboardModule = (props: DashboardModuleProps) => {
     return <Dashboard />;
 }
-
-export default DashboardModule;

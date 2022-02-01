@@ -1,13 +1,11 @@
 import React from 'react';
 
-interface DashboardProps {}
+interface DashboardProps { }
 
-const Dashboard = (props: DashboardProps) => {
-    return(
+export const Dashboard = (props: DashboardProps) => {
+    return (
         <>
-sasasa
+            Dashboard
         </>
     )
 }
-
-export default Dashboard;

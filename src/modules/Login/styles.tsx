@@ -1,54 +1,36 @@
-import { makeStyles } from '@material-ui/styles';
+import styled from 'styled-components';
+import { Grid } from '@mui/material';
 import imageBackground from '../../shared/assets/images/background_login_mapa.png';
 
-const loginStyles = makeStyles({
-    root: {
-        height: '100vh',
-    },
-    image: {
-        backgroundImage: `url(${imageBackground})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundColor: '#28272d',
-        //     theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-    },
-    colorDetails: {
-        color: '#2a4159',
-    },
-    section: {
-        backgroundColor: '#28272d',
-        color: '#28272d',
-    },
-    paper: {
-        margin: '50px 25px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-    },
-    avatar: {
-        // margin: '10px',
-        // backgroundColor: '#28272d',
-        width: 120,
-        height: 120,
-        marginLeft: 50,
-        marginRight: 50,
-        marginBottom: 20,
-    },
-    form: {
-        width: '100%', // Fix IE 11 issue.
-        marginTop: '5px',
-        color: '#f2f2f2',
-    },
-    submit: {
-        margin: '10px',
-        backgroundColor: '#EBEDF5',
-        color: '#28272d',
-        '&:hover': {
-            backgroundColor: '#FF4516',
-            color: '#f2f2f2',
-        },
-    },
-});
+export const GridMain = styled(Grid)`
+    height: 100vh;
+`;
 
-export default loginStyles;
+export const GridImage = styled(Grid)`
+    background-image: url(${imageBackground});
+    background-repeat: no-repeat;
+    background-color: #28272d;
+    background-size: cover;
+    background-position: center;
+`;
+
+export const GridSection = styled(Grid)`
+    background-color: #28272d;
+    box-shadow: 0 0 0.5em #28272d;
+    margin: 50px 25px;
+`;
+
+export const SectionForm = styled.div`
+    background-color: transparent;
+    color: transparent;
+    margin: 50px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
+export const FormLogin = styled.form`
+    width: 100%; // Fix IE 11 issue.
+    margin-top: 5px;
+    color: #f2f2f2;
+`;

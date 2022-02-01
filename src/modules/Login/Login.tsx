@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
-import { Avatar, Box, Button, CssBaseline, Grid, Paper, Typography } from '@mui/material';
-import imageLogo from '../../shared/assets/images/logo2.png';
+import { GridMain, GridImage, GridSection, SectionForm, FormLogin, } from './styles';
+import { Box, Typography } from '@mui/material';
 import { Copyright } from '../../shared/components/Copyright';
 import { InputLogin } from './components/InputLogin';
 import { LoginStore } from './store/login-store';
-import loginStyles from "./styles";
+import { ButtonLogin } from './components/ButtonLogin';
+import { LogoVolana } from '../../shared/components/LogoVolana';
 
 interface LoginProps {
-    loginStore: LoginStore;
+    store: LoginStore;
 }
 
-const Login = ({ loginStore }: LoginProps) => {
-    const classes = loginStyles();
-    
+export const Login = ({ store }: LoginProps) => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
 
@@ -23,31 +22,28 @@ const Login = ({ loginStore }: LoginProps) => {
     });
 
     return (
-        <Grid container component="main" className={classes.root}>
-            <CssBaseline />
-            <Grid item xs={false} sm={4} md={8} className={classes.image} />
-            <Grid className={classes.section} item xs={12} sm={8} md={4} component={Paper} elevation={6} square>
-                <div className={classes.paper}>
-                    <Avatar
-                        alt="Logo"
-                        src={imageLogo}
-                        variant="square"
-                        className={classes.avatar}
+        <GridMain container>
+            <GridImage item xs={false} sm={4} md={8} />
+            <GridSection item xs={12} sm={8} md={4}>
+                <SectionForm>
+                    <LogoVolana
+                        width={80}
+                        height={80}
                     />
-                    <Typography component="h1" variant="h5" style={{ color: '#EBEDF5' }}>
+                    <Typography component="h1" variant="h5" color={'#EBEDF5'} >
                         Volana Guild
                     </Typography>
-                    <form className={classes.form} noValidate >
+                    <FormLogin noValidate>
                         <InputLogin
                             name="Email"
                             textError={errors.email}
-                            onChange={(e) => loginStore.emailTextHandler(e, setEmail)}
+                            onChange={(e) => store.emailTextHandler(e, setEmail)}
                         />
 
                         <InputLogin
                             name="Password"
                             textError={errors.password}
-                            onChange={(e) => loginStore.passwordTextHandler(e, setPassword)}
+                            onChange={(e) => store.passwordTextHandler(e, setPassword)}
                         />
 
                         <Box mt={1}>
@@ -58,25 +54,16 @@ const Login = ({ loginStore }: LoginProps) => {
                             </Typography>
                         </Box>
 
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            color="primary"
-                            className={classes.submit}
-                            onClick={(e) => loginStore.login(e, email, password, setErrors)}
-                        >
-                            Entrar
-                        </Button>
+                        <ButtonLogin
+                            onClick={(e) => store.login(e, email, password, setErrors)}
+                        />
 
                         <Box mt={2}>
                             <Copyright />
                         </Box>
-                    </form>
-                </div>
-            </Grid>
-        </Grid>
+                    </FormLogin>
+                </SectionForm>
+            </GridSection>
+        </GridMain>
     )
 }
-
-export default Login;
