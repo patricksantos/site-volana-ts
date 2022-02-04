@@ -35,12 +35,12 @@ export class LoginStore {
     };
 
     @action
-    public emailTextHandler(value: string) {
+    public emailTextHandler(value: string) : void {
         this.email = value;
     }
 
     @action
-    public passwordTextHandler(value: string) {
+    public passwordTextHandler(value: string) : void {
         this.password = value;
     }
 
@@ -76,8 +76,6 @@ export class LoginStore {
     };
 
     public get getErrors(): SetErrors {
-        console.log(this.errors);
         return this.errors;
     }
-
 }

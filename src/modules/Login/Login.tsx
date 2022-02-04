@@ -47,7 +47,7 @@ export const Login = observer(({ store }: LoginProps) => (
                     </Box>
 
                     <ButtonLogin
-                        onClick={(e: any) => {
+                        onClick={(e: React.MouseEvent<HTMLElement>) => {
                             e.preventDefault();
                             store.login(store.getEmail, store.getPassword);
                         }}
