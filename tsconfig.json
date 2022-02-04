@@ -23,6 +23,7 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
+    "useDefineForClassFields": true,
   },
   "include": [
     "src",

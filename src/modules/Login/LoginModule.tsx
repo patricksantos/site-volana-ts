@@ -1,6 +1,6 @@
 import { LoginRepository } from '../../repository/login-repository';
 import { Login } from './Login';
-import { LoginStore } from './store/login-store';
+import { LoginStore } from './store/LoginStore';
 
 export const LoginModule = () => {
     const loginRepository = new LoginRepository();
@@ -8,3 +8,4 @@ export const LoginModule = () => {
 
     return <Login store={loginStore} />;
 }
+
